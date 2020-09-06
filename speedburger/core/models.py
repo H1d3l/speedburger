@@ -11,13 +11,14 @@ class Hamburguer(models.Model):
         ('PAO4',"PAO4"),
     ]
     name = models.CharField(max_length = 50)
+    image = models.ImageField(default = 'defalt.png',blank=True) 
     description = models.TextField()
-    value = models.FloatField()
+    price = models.DecimalField(default = 0,decimal_places=2, max_digits=8)
     type_bread = models.CharField(max_length = 10,choices = TYPE_BREAD_CHOICE,default='PAO1')
 
 
     class Meta:
-        ordering = ['value']
+        ordering = ['name']
 
     def __str__(self):
         return self.name
@@ -28,12 +29,15 @@ class Hamburguer(models.Model):
 
 class ComboHamburguer(models.Model):
     name = models.CharField(max_length = 50)
+    image = models.ImageField(default = 'defalt.png',blank=True)
     description = models.TextField()
-    value = models.FloatField()
+    price = models.DecimalField(default = 0,decimal_places=2, max_digits=8)
+
+
     
     
     class Meta:
-        ordering = ['value']
+        ordering = ['name']
 
     def __str__(self):
         return self.name

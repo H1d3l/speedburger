@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <h2 align = center >Combos Hamburguers</h2>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                {% for hamburguer in combo_hamburguer %}
+                <div class="col-sm-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{hamburguer.image.url }}" class="card-img-top" width="150" height="160" />                        
+                            
+                        <div class="card-body">
+                            <h5 class="card-title">Nome:{{ hamburguer.name }}</h5>
+                            <p class="card-text">Descrição: {{hamburguer.description}}</p>
+                            <p class="card-text">Valor:{{hamburguer.price}}</p>
+
+                        </div>
+                    </div>
+                    
+                </div>
+                {% endfor %}
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
