@@ -15,15 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from core.views import *
 from django.conf.urls.static import static
 from django.conf import settings
+from core.views import *
+from accounts.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hamburguer/',HamburguerListView.as_view(), name='hamburguer_list'),
-    path('combo_hamburguer/',ComboHamburguerListView.as_view(), name='combo_hamburguer')
+    path('hamburguer/', HamburguerListView.as_view(), name='hamburguer_list'),
+    path('combo_hamburguer/', ComboHamburguerListView.as_view(),
+         name='combo_hamburguer'),
+    path('registrar/', RegisterUserProfileView.as_view(), name='registrar')
+
 
 
 ]
-urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

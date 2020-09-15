@@ -24,7 +24,8 @@ class UserManager(BaseUserManager):
 
 
 class UserProfile(models.Model):
-    username = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
+    username = models.CharField(max_length=100)
     phone = models.CharField(max_length=20)
     email = models.EmailField(max_length=200)
     adress = models.TextField()
@@ -32,10 +33,3 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.username
 
-
-'''
-    def create_user(self, username,phone,email,adress,password):
-        user = User.objects.create_user(username=username,phone=phone,email=email,adress=adress,
-        password=password)
-        user.save()
-'''
