@@ -26,9 +26,9 @@ class UserManager(BaseUserManager):
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
     username = models.CharField(max_length=100)
-    phone = models.CharField(max_length=20)
+    phone = models.CharField(max_length=20,primary_key=True)
     email = models.EmailField(max_length=200)
-    adress = models.TextField()
+
 
     def __str__(self):
         return self.username

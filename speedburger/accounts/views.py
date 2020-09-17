@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect,HttpResponse
 from django.views.generic.base import View
 from django.contrib.auth.models import User
 from .models import UserProfile
-from .forms import RegisterUserProfile
+from .forms import RegisterUserProfileForm
 
 # Create your views here.
 class RegisterUserProfileView(View):
@@ -13,7 +13,7 @@ class RegisterUserProfileView(View):
         return render(request,self.template_name)
 
     def post(self,request):
-        form = RegisterUserProfile(request.POST)
+        form = RegisterUserProfileForm(request.POST)
         if form.is_valid():
             dados_form = form.cleaned_data
             usuario = User.objects.create_user(username = dados_form['username'],
@@ -22,7 +22,9 @@ class RegisterUserProfileView(View):
 
             account = UserProfile(username = dados_form['username'],
                             phone = dados_form['phone'],
+                            email = dados_form['email'],
                             user = usuario)
+            
 
             account.save()
             return HttpResponse("Usuario criado")#ajeitar aki
