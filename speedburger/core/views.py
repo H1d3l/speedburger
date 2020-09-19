@@ -5,6 +5,8 @@ from .models import *
 
 # Create your views here.
 
+
+
 class HamburguerListView(ListView):
     def get(self,request):
         hamburguer_list = Hamburguer.objects.all()
