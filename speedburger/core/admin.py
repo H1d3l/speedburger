@@ -3,8 +3,8 @@ from .models import *
 
 # Register your models here.
 
-admin.site.register(Hamburguer)
-admin.site.register(ComboHamburguer)
+admin.site.register(Product)
+admin.site.register(Combo)
 
 
 

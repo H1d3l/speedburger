@@ -3,18 +3,19 @@ from django.db import models
 # Create your models here.
 
 
-class Hamburguer(models.Model):
-    TYPE_BREAD_CHOICE = [
-        ('PAO1',"PAO1"),
-        ('PAO2',"PAO2"),
-        ('PAO3',"PAO3"),
-        ('PAO4',"PAO4"),
+class Product(models.Model):
+    TYPE_PRODUCT_CHOICE = [
+        ('Hamburguer',"Hamburguer"),
+        ('Batata Frita',"Batata Frita"),
+        ('Pastel',"Pastel"),
+        ('Bebidas',"Bebidas"),
+        ('Adicionais',"Adicionais"),
     ]
     name = models.CharField(max_length = 50)
     image = models.ImageField(default = 'defalt.png',blank=True) 
     description = models.TextField()
     price = models.DecimalField(default = 0,decimal_places=2, max_digits=8)
-    type_bread = models.CharField(max_length = 10,choices = TYPE_BREAD_CHOICE,default='PAO1')
+    type_product = models.CharField(max_length = 30,choices = TYPE_PRODUCT_CHOICE,default='Hamburguer')
 
 
     class Meta:
@@ -27,7 +28,7 @@ class Hamburguer(models.Model):
 
 
 
-class ComboHamburguer(models.Model):
+class Combo(models.Model):
     name = models.CharField(max_length = 50)
     image = models.ImageField(default = 'defalt.png',blank=True)
     description = models.TextField()

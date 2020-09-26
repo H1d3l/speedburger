@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="container-fluid">
-    <h2 align = center >Hamburguers</h2>
+    <h2>Hamburguers</h2>
 
     <div class="card">
         <div class="card-body">
@@ -10,8 +10,8 @@
                 {% for hamburguer in hamburguer_list %}
                 <div class="col-sm-3">
                     <div class="card" style="width: 18rem;">
-                        <img src="{{hamburguer.image.url }}" class="card-img-top" width="150" height="160" />                        
-                            
+                        <img src="{{hamburguer.image.url }}" class="card-img-top" width="150" height="160" />
+
                         <div class="card-body">
                             <h5 class="card-title">Nome:{{ hamburguer.name }}</h5>
                             <p class="card-text">Descrição: {{hamburguer.description}}</p>
@@ -19,14 +19,10 @@
 
                         </div>
                     </div>
-                    
+
                 </div>
                 {% endfor %}
             </div>
-
-
-
-
 
         </div>
     </div>
