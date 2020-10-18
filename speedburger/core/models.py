@@ -12,7 +12,7 @@ class Product(models.Model):
         ('Adicionais',"Adicionais"),
     ]
     name = models.CharField(max_length = 50)
-    image = models.ImageField(upload_to="udemuimages/hamburguer",default = 'default.png',blank=True) 
+    image = models.ImageField(upload_to="hamburguer/",default = 'default.png',blank=True) 
     description = models.TextField()
     price = models.DecimalField(default = 0,decimal_places=2, max_digits=8)
     type_product = models.CharField(max_length = 30,choices = TYPE_PRODUCT_CHOICE,default='Hamburguer')

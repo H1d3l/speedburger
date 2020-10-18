@@ -17,7 +17,7 @@ class IndexView(ListView):
 
 class HamburguerListView(ListView):
     def get(self,request):
-        hamburguer_list = Product.objects.filter(type_product='hamburguer')
+        hamburguer_list = Product.objects.filter(type_product='Hamburguer')
         return render(request,'hamburguer/hamburguer_list.html',{'hamburguer_list':hamburguer_list})    
 
 
